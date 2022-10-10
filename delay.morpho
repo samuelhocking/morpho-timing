@@ -1,0 +1,19 @@
+fn delay(f, ...a) {
+	fn q() {
+			return apply(f, a)
+	}
+
+	return q 
+}
+
+fn test(x, ...y) {
+    print "I'm being called with ${x} and ${y}!"
+}
+
+var q = delay(test, 0, 1, 2)
+
+print "Didn't get called yet!"
+
+q() 
+
+print "Should have been called!"
